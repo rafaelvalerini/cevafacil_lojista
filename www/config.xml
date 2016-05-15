@@ -68,5 +68,4 @@
     <splash src="resources/ios/splash/splash320x480.jpg" height="480" width="320"/>
   </platform>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
-  <gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io" />
 </widget>
