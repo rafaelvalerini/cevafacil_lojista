@@ -1,0 +1,27 @@
+<ion-view view-title="Sign Up" class="loginBg" hide-nav-bar="true" >
+		<ion-header-bar align-title="center" class="bar-positive bar-cevafacil">
+		  	<div class="buttons">
+		    	<a ng-click="goBack()" class="button icon ion-chevron-left" ></a>
+		  	</div>
+		  	<h1 class="title" style="padding-top: 10px;"><img src="img/Iconecentral.png"></h1>
+		  	<div class="buttons">
+		    	<a ng-click="save()" class="button icon ion-checkmark-round" ></a>
+		  	</div>
+		</ion-header-bar>
+	  
+	  	<ion-content class="padding">
+		  		<div class="list card">
+		  			<ion-item class="item item-avatar">
+					    <img src="{{result.logo}}">
+					    <h2>{{result.name}}</h2>
+					    <p>{{result.name}}</p>
+					</ion-item>
+				</div>
+				<label class="item item-input">
+				  <span class="input-label">Valor</span>
+				  <input type="number" value="{{result.valueFloat}}" id="inputNumber">
+				</label>
+	  	</ion-content>
+
+	  	
+</ion-view>

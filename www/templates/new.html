@@ -1,0 +1,42 @@
+<ion-view view-title="Sign Up" class="loginBg" hide-nav-bar="true" >
+	<ion-header-bar align-title="center" class="bar-positive bar-cevafacil">
+	  	<div class="buttons">
+	  		<a ng-click="goBack()" class="button icon ion-chevron-left" ></a>
+	  	</div>
+	  	<h1 class="title" style="padding-top: 10px;"><img src="img/Iconecentral.png"></h1>
+	</ion-header-bar>
+  
+		<ion-content class="padding">
+		  <div class="row responsive-sm padding remvoeBP">
+			  <div class="col">
+			  		<br />
+			  		<b>Nome do estabelecimento</b><br />
+					<div class="list list-inset removePM">
+					  <label class="item item-input"><input type="text" ng-model="result.Name" placeholder="Nome da empresa"> </label>
+					</div>
+					<br />
+
+					<b>Usuário</b><br />
+					<div class="list list-inset removePM">
+					  	<label class="item item-input"><input type="text" ng-model="result.User" placeholder="Usuário"> </label>
+					</div>
+					<br />
+					<b>Senha</b><br />
+						<div class="list list-inset removePM">
+						  	<label class="item item-input"><input type="password" ng-model="result.Password" placeholder="Senha"> </label>
+						</div>
+					<br />
+
+					<br />
+					<b>
+					<input type="checkbox" name="vehicle" value="Bike" ng-model="result.TermoDeUso"> Eu aceito o <a href="#" ng-click="openPopup()">contrato de prestação de serviço</a></ion-checkbox>
+						  	
+					<br />
+					<br />
+					<div class="loginButton"><button class="button ion-person button-block button-balanced" ng-click="save()"> Gravar </button>  </div>
+			  </div>
+		  </div>
+
+		  </ion-content>
+
+</ion-view>

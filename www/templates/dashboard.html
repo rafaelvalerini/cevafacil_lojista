@@ -1,0 +1,80 @@
+<ion-view view-title="Ceva Fácil - Lojista" class="loginBg" hide-nav-bar="true" >
+	<ion-header-bar align-title="center" class="bar-positive bar-cevafacil">
+	  	<div class="buttons">
+	  		<a ng-click="goBack()" class="button icon ion-chevron-left" ></a>
+	  	</div>
+	  	<h1 class="title" style="padding-top: 10px;"><img src="img/Iconecentral.png"></h1>
+	</ion-header-bar>
+  
+		<ion-content class="padding">
+		  <div class="row responsive-sm padding remvoeBP">
+			  <div class="col">
+			  		<br />
+			  		<b>Informações gerais</b><br />
+					<div class="list list-inset removePM">
+					  <label class="item item-input"><input type="text" ng-model="result.Name" placeholder="Nome da empresa"> </label>
+					  <label class="item item-input"><textarea ng-model="result.Description" rows="3" cols="10" placeholder="Descrição"> </textarea></label>
+					  <label class="item item-input"><textarea ng-model="result.Address" rows="3" cols="10" placeholder="Endereço"> </textarea>
+					</div>
+					<br />
+
+					<b>Horário de funcionamento</b><br />
+						Seg à Sex: 
+					<div class="list list-inset removePM">
+					  	<label class="item item-input">
+					  		<input type="text" ng-model="result.Business.BusinessDayIni" size="20"> às &nbsp &nbsp &nbsp
+					  		<input type="text" ng-model="result.Business.BusinessDayFim" size="20"> 
+					  	</label>
+					</div>
+					  	Sábado:
+					 <div class="list list-inset removePM">
+					  	<label class="item item-input">
+					  		<input type="text" ng-model="result.Business.SaturdayIni" size="20"> às &nbsp &nbsp &nbsp
+					  		<input type="text" ng-model="result.Business.SaturdayFim" size="20"> 
+					  	</label>
+					 </div>
+					  	Domingo:
+					 <div class="list list-inset removePM">
+					  	<label class="item item-input">
+					  		<input type="text" ng-model="result.Business.MondayIni" size="20"> às &nbsp &nbsp &nbsp
+					  		<input type="text" ng-model="result.Business.MondayFim" size="20"> 
+						</label>
+					</div>
+					<br />
+					<b>Telefone de contato</b><br />
+					<div class="list list-inset removePM">
+					  	<label class="item item-input">
+					  		<input type="tel" ng-model="result.PhoneNumber" size="20">
+					  	</label>
+					</div>
+					<br />
+
+					<b>Efetua entrega</b><br />
+					<div class="list list-inset removePM">
+					  	<label class="item item-input">
+					  		<ion-checkbox ng-model="result.Delivery">Sim</ion-checkbox>
+					  	</label>
+					</div>
+					<br />
+
+					<b>Cartões Aceitos</b><br />
+					<div class="list list-inset removePM">
+				    	<ion-checkbox ng-model="result.Cards.IsCheckedVisa"><img src="img/cards/Visa.png"></ion-checkbox>
+				    	<ion-checkbox ng-model="result.Cards.IsCheckedMaster"><img src="img/cards/Mastercard.png"></ion-checkbox>
+				    	<ion-checkbox ng-model="result.Cards.IsCheckedAmerican"><img src="img/cards/American.png"></ion-checkbox>
+				    	<ion-checkbox ng-model="result.Cards.IsCheckedElo"><img src="img/cards/Elo.png"></ion-checkbox>
+				    	<ion-checkbox ng-model="result.Cards.IsCheckedGoodcard"><img src="img/cards/Goodcard.png"></ion-checkbox>
+				    	<ion-checkbox ng-model="result.Cards.IsCheckedHipercard"><img src="img/cards/Hipercard.png"></ion-checkbox>
+				    	<ion-checkbox ng-model="result.Cards.IsCheckedMaestro"><img src="img/cards/Maestro.png"></ion-checkbox>
+				    	<ion-checkbox ng-model="result.Cards.IsCheckedSodexo"><img src="img/cards/Sodexo.png"></ion-checkbox>
+				    	<ion-checkbox ng-model="result.Cards.IsCheckedVR"><img src="img/cards/VR.png"></ion-checkbox>
+				    	<ion-checkbox ng-model="result.Cards.IsCheckedAlelo"><img src="img/cards/Alelo.png"></ion-checkbox>
+				    	<ion-checkbox ng-model="result.Cards.IsCheckedDinersclub"><img src="img/cards/dinersclub.png"></ion-checkbox>
+		    		</div>
+					<div class="loginButton"><button class="button ion-person button-block button-balanced" ng-click="save()"> Gravar </button>  </div>
+			  </div>
+		  </div>
+
+		  </ion-content>
+
+</ion-view>
