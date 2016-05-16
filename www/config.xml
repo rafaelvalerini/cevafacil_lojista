@@ -55,16 +55,18 @@
   	<icon src="res/ios/icon/icon-72@2x.png" gap:platform="ios" width="144" height="144" />
   	<icon src="res/ios/icon/icon-50.png" gap:platform="ios" width="50" height="50" />
   	<icon src="res/ios/icon/icon-50@2x.png" gap:platform="ios" width="100" height="100" />
-    <splash src="res/ios/splash/splash640x1136.jpg" gap:platform="ios" height="1136" width="640"/>
-    <splash src="res/ios/splash/splash750x1334.jpg" gap:platform="ios" height="1334" width="750"/>
-    <splash src="res/ios/splash/splash1242x2208.jpg" gap:platform="ios" height="2208" width="1242"/>
-    <splash src="res/ios/splash/splash2208x1242.jpg" gap:platform="ios" height="1242" width="2208"/>
-    <splash src="res/ios/splash/splash2048x1536.jpg" gap:platform="ios" height="1536" width="2048"/>
-    <splash src="res/ios/splash/splash1024x768.jpg" gap:platform="ios" height="768" width="1024"/>
-    <splash src="res/ios/splash/splash1536x2048.jpg" gap:platform="ios" height="2048" width="1536"/>
-    <splash src="res/ios/splash/splash768x1024.jpg" gap:platform="ios" height="1024" width="768"/>
-    <splash src="res/ios/splash/splash640x960.jpg" gap:platform="ios" height="960" width="640"/>
-    <splash src="res/ios/splash/splash320x480.jpg" gap:platform="ios" height="480" width="320"/>
+
+    <splash src="res/ios/splash/Default.png" platform="ios" width="320" height="480" />
+    <splash src="res/ios/splash/Default@2x.png" platform="ios" width="640" height="960" />
+    <splash src="res/ios/splash/Default-568h@2x.png" platform="ios" width="640" height="1136" />
+    <splash src="res/ios/splash/Default-667h@2x.png" platform="ios" width="750" height="1334" />
+    <splash src="res/ios/splash/Default-Portrait-736h@3x.png" platform="ios" width="1242" height="2208" />
+    <splash src="res/ios/splash/Default-Landscape-736h@3x.png" platform="ios" width="2208" height="1242" />
+    <splash src="res/ios/splash/Default-Portrait.png" platform="ios" width="768" height="1024" />
+    <splash src="res/ios/splash/Default-Landscape.png" platform="ios" width="1024" height="768" />
+    <splash src="res/ios/splash/Default-Portrait@2x.png" platform="ios" width="1536" height="2048" />
+    <splash src="res/ios/splash/Default-Landscape@2x.png" platform="ios" width="2048" height="1536" />
+
   </platform>
   <icon src="res/android/icon/drawable-xhdpi-icon.png"/>
 </widget>
