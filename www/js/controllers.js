@@ -251,7 +251,7 @@ angular.module('starter.controllers', [])
 					$window.location.href = '#/app/meet/'+$scope.brand;
 				}
 
-				$window.location.reload();
+				//$window.location.reload();
 
 			}, function(err) {
 
@@ -330,7 +330,7 @@ angular.module('starter.controllers', [])
 		  			$timeout( 
 		  				function(){ 
 		  					$window.location.href = '#/app/initial';
-							$window.location.reload();
+							//$window.location.reload();
 		  				}, 
 		  				3000);
 		  		}
@@ -396,7 +396,7 @@ angular.module('starter.controllers', [])
 				  			$timeout( 
 				  				function(){ 
 				  					$window.location.href = '#/app/initial';
-									$window.location.reload();
+									//$window.location.reload();
 				  				}, 
 				  				2000);
 
@@ -680,7 +680,7 @@ angular.module('starter.controllers', [])
 			  			$ionicLoading.hide();
 
 	  					$window.location.href = '#/app/company/signature';
-						$window.location.reload();
+						//$window.location.reload();
 			  		}
 
 				}, function(err) {
@@ -850,7 +850,7 @@ angular.module('starter.controllers', [])
 
 	  					$window.location.href = '#/app/cupons';
 	  					
-						$window.location.reload();
+						//$window.location.reload();
 			  		}
 
 				}, function(err) {
@@ -912,7 +912,7 @@ angular.module('starter.controllers', [])
 
 	  					$window.location.href = '#/app/cupons';
 
-						$window.location.reload();
+						//$window.location.reload();
 			  		}
 
 				}, function(err) {
@@ -992,7 +992,7 @@ angular.module('starter.controllers', [])
 			  			$ionicLoading.hide();
 
 	  					$window.location.href = '#/app/cupons';
-						$window.location.reload();
+						//$window.location.reload();
 			  		}
 
 				}, function(err) {
@@ -1032,3 +1032,4 @@ angular.module('starter.controllers', [])
 	}
 
 });
+
