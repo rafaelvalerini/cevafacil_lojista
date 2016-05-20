@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngCordova'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout,  $location, $ionicPopup) {
 
@@ -86,7 +86,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('TypeHomeCtrl', function($scope, $stateParams , $window, Beer) {
+.controller('TypeHomeCtrl', function($log, $scope, $cordovaGeolocation, $stateParams , $window, Beer) {
 
 	
 
@@ -103,17 +103,30 @@ angular.module('starter.controllers', [])
 
 	$scope.id = $stateParams.id;
 
-	$window.navigator.geolocation.getCurrentPosition(function(position) {
-  
-    	$scope.$apply(function() {
-  
-      		window.localStorage['lat'] = position.coords.latitude;
-  
-      		window.localStorage['lng'] = position.coords.longitude;
+	try{
+		$window.navigator.geolocation.getCurrentPosition(function(position) {
+	  
+	    	$scope.$apply(function() {
+	  
+	      		window.localStorage['lat'] = position.coords.latitude;
+	  
+	      		window.localStorage['lng'] = position.coords.longitude;
 
-    	})
+	    	})
 
-  	})
+	  	})
+	}catch(e){
+		
+		var posOptions = {timeout: 10000, enableHighAccuracy: false};
+
+		$cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+	    	window.localStorage['lat'] = position.coords.latitude
+	      	window.localStorage['lng'] = position.coords.longitude
+	    }, function(err) {
+	      $log.debug(err);
+	    });
+
+	}
 
   	if(!window.localStorage['lat']){
 		window.localStorage['lat'] = -20.5477575;
@@ -251,7 +264,7 @@ angular.module('starter.controllers', [])
 					$window.location.href = '#/app/meet/'+$scope.brand;
 				}
 
-				//$window.location.reload();
+				$window.location.reload();
 
 			}, function(err) {
 
@@ -330,7 +343,7 @@ angular.module('starter.controllers', [])
 		  			$timeout( 
 		  				function(){ 
 		  					$window.location.href = '#/app/initial';
-							//$window.location.reload();
+							$window.location.reload();
 		  				}, 
 		  				3000);
 		  		}
@@ -353,7 +366,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LocationCtrl', function($scope, $window, $timeout, $http, $ionicPopup, $ionicLoading) {
+.controller('LocationCtrl', function($scope, $window, $log, $cordovaGeolocation, $timeout, $http, $ionicPopup, $ionicLoading) {
   
 	
 
@@ -372,57 +385,55 @@ angular.module('starter.controllers', [])
 			noBackdrop: false
 		});
   		
-	  	$window.navigator.geolocation.getCurrentPosition(
-	  		function(position) {
-	  
-		    	$scope.$apply(function() {
-		  
-		      		window.localStorage['lat'] = position.coords.latitude;
-		  
-		      		window.localStorage['lng'] = position.coords.longitude;
+  		var posOptions = {timeout: 10000, enableHighAccuracy: false};
 
-		      		$http.post('http://52.87.63.135:7001/company/'+JSON.parse(window.localStorage['companyLogin']).Id + 
-						'/lat/'+window.localStorage['lat']+'/lng/'+window.localStorage['lng'] + '/token/'+Base64.encode('' + new Date().getTime()))
+  		$cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
 					
-						.then(function(resp) {
+			window.localStorage['lat'] = position.coords.latitude;
+  
+      		window.localStorage['lng'] = position.coords.longitude;
 
-							$ionicLoading.hide();
+      		$http.post('http://52.87.63.135:7001/company/'+JSON.parse(window.localStorage['companyLogin']).Id + 
+				'/lat/'+window.localStorage['lat']+'/lng/'+window.localStorage['lng'] + '/token/'+Base64.encode('' + new Date().getTime()))
+			
+				.then(function(resp) {
 
-							$ionicPopup.alert({
-						       title: 'Mensagem de sucesso',
-						       template: 'Localização atualizada com sucesso.'
-						    });
+					$ionicLoading.hide();
 
-				  			$timeout( 
-				  				function(){ 
-				  					$window.location.href = '#/app/initial';
-									//$window.location.reload();
-				  				}, 
-				  				2000);
+					$ionicPopup.alert({
+				       title: 'Mensagem de sucesso',
+				       template: 'Localização atualizada com sucesso.'
+				    });
 
-						}, function(err) {
+		  			$timeout( 
+		  				function(){ 
+		  					$window.location.href = '#/app/initial';
+		  				}, 
+		  				2000);
 
-							$ionicLoading.hide();
+				}, function(err) {
 
-							$ionicPopup.alert({
-							    title: 'Falha ao salvar informações',
-							    template: 'Verifique sua conexão com a internet e tente novamente.'
-							});
+					$ionicLoading.hide();
 
-						    console.error('ERR', err);
+					$ionicPopup.alert({
+					    title: 'Falha ao salvar informações',
+					    template: 'Verifique sua conexão com a internet e tente novamente.'
+					});
 
-						})
+				    console.error('ERR', err);
 
-		    	})
+				})
 
-		  	}, function(error) {
-            	$ionicPopup.alert({
+	    }, function(err) {
+
+	    	$ionicLoading.hide();
+
+	     	$ionicPopup.alert({
 				       title: 'Falha ao gravar localização',
 				       template: 'Verifique se o GPS do seu aparelho está ligado e tente novamente' 
 				});
-        
-        	}
-        );
+
+	    });
 
 	  	if(!window.localStorage['lat']){
 			window.localStorage['lat'] = -20.5477575;
@@ -680,7 +691,7 @@ angular.module('starter.controllers', [])
 			  			$ionicLoading.hide();
 
 	  					$window.location.href = '#/app/company/signature';
-						//$window.location.reload();
+						$window.location.reload();
 			  		}
 
 				}, function(err) {
@@ -850,7 +861,7 @@ angular.module('starter.controllers', [])
 
 	  					$window.location.href = '#/app/cupons';
 	  					
-						//$window.location.reload();
+						$window.location.reload();
 			  		}
 
 				}, function(err) {
@@ -912,7 +923,7 @@ angular.module('starter.controllers', [])
 
 	  					$window.location.href = '#/app/cupons';
 
-						//$window.location.reload();
+						$window.location.reload();
 			  		}
 
 				}, function(err) {
@@ -992,7 +1003,7 @@ angular.module('starter.controllers', [])
 			  			$ionicLoading.hide();
 
 	  					$window.location.href = '#/app/cupons';
-						//$window.location.reload();
+						$window.location.reload();
 			  		}
 
 				}, function(err) {
@@ -1032,4 +1043,3 @@ angular.module('starter.controllers', [])
 	}
 
 });
-
